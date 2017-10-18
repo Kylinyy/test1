@@ -4,4 +4,4 @@ Git has a mutable index stage.
 Git tracks changes.
 
 
-stupid
+stupid£¡£¡£¡
