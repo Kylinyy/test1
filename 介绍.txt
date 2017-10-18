@@ -1,0 +1,22 @@
+仿qq空间换肤
+
+#top-bgList{
+		background: rgba(0,0,0,0.5);/*背景颜色有透明度时使用rgba()*/
+		border-top: 1px solid #fff;/*消除外边距传递的影响：给父边框或定位。（定位会重新计算赋值）*/
+		
+	}
+li{
+    list-style: none;/*去列表圆点*/
+  }
+#btn:hover{
+     background-position: 0 -49px;/*使用一张图的图标，通过更改位置实现图标切换。目的:通过减少请求次数降低负载*/
+}
+
+
+$('#top-bgList ul li').click(function(){
+				var src=$(this).find('img').attr('bigSrc');/*获取自定义属性值bigSrc*/
+				$('body').css({
+					"background":"url("+src+")",
+					"background-size":"cover"
+				});
+			});

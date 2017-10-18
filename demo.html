@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>QQ空间</title>
+	<style type="text/css">
+		body{
+			background: url(images/1.jpg);
+			background-size: cover;
+			margin: 0;
+
+		}
+		#btn{
+			position: absolute;/*把能影响的写在上面*/
+			top: 0;
+			right: 0;
+			width: 45px;
+			height: 40px;
+			background: url(images/icon.png);
+			cursor: pointer;
+
+		}
+		#btn:hover{
+			background-position: 0 -49px;/*使用一张图的图标，通过更改位置实现图标切换。目的:通过减少请求次数降低负载*/
+		}
+		#top-bgList{
+			height: 200px;
+			background: rgba(0,0,0,0.5);/*背景颜色有透明度时使用rgba()*/
+			border-top: 1px solid #fff;/*消除外边距传递的影响：给父边框或定位。（定位会重新计算赋值）*/
+			display: none;
+		}
+		li{
+			list-style: none;/*去列表圆点*/
+		}
+		#top-bgList img{
+			width: 160px;
+			height: 100px;
+
+		}
+		ul{
+			margin: 0;/*外边距*/
+			padding: 0;/*内边距*/
+		}
+		#top-bgList ul li{
+			float: left;
+			margin-right: 30px;
+		}
+		#top-bgList ul{
+			width: 950px;
+			margin: 50px auto;
+		}
+	</style>
+
+   <script src="js/jquery.js"></script>
+   <script type="text/javascript" src="js/snow.js"></script>
+   
+	<script type="text/javascript">
+		/*
+		特效
+		 */
+		$(function(){
+			$('#btn').click(function(){
+				$('#top-bgList').slideToggle();
+			});
+
+			$('#top-bgList ul li').click(function(){
+				var src=$(this).find('img').attr('bigSrc');/*获取自定义属性值*/
+				$('body').css({
+					"background":"url("+src+")",
+					"background-size":"cover"
+				});
+			});
+
+		});
+			
+	</script>
+</head>
+<body>
+	<div id="top-bgList">
+		<ul>
+			<li><img src="images/1-1.jpg" bigSrc="images/1.jpg"/></li>
+			<li><img src="images/2-1.jpg" bigSrc="images/2.jpg"/></li>
+			<li><img src="images/3-1.jpg" bigSrc="images/3.jpg"/></li>
+			<li><img src="images/4-1.jpg" bigSrc="images/4.jpg"/></li>
+			<li><img src="images/5-1.jpg" bigSrc="images/5.jpg"/></li>
+		</ul>
+	</div>
+	<div id="btn"></div>
+
+</body>
+</html>
